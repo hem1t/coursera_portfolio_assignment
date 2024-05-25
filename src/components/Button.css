@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
+
+.button {
+    border: 8px solid #048F88 ;
+    min-width: fit-content;
+    max-width: max-content;
+    padding: 3px 30px;
+    border-radius: 50px;
+}
+
+.button-text {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Baloo Da 2";
+    font-weight: 900;
+    font-size: 45px;
+}
