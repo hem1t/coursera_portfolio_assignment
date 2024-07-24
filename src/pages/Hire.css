@@ -1,24 +1,25 @@
 .hire-page-root {
     display: flex;
     flex-direction: column;
-    gap: 30px;
     height: 100vh;
     padding: 10px;
     background-color: #a7f1ed;
     justify-content: space-around;
     align-items: center;
-    /* needs a max-width for the time when it expanded */
 }
 
 .hire-page-upper {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 45px;
+    width: 80%;
+    padding: 30px 0px;
 }
 
 .hire-me-head {
     font-size: 70px;
     line-height: 0px;
+    margin-bottom: 30px;
 }
 
 .input-round {
@@ -40,16 +41,18 @@
 }
 
 .email-input {
+    min-width: 98%;
 }
 
 .brief-input {
     min-height: 300px;
+    min-width: 98%;
 }
 
 .hire-submit-button {
     background-color: #000606;
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 350px;
+    max-width: 350px;
     padding: 10px 20px;
     border: none;
     border-radius: 5555px;

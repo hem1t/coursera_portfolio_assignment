@@ -2,3 +2,23 @@
   display: flex;
   flex-direction: row;
 }
+
+.main-first-page {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1240px) {
+  .main-first-page {
+    flex-direction: row-reverse;
+  }
+
+  .intro-page-root {
+    flex: 1;
+  }
+
+  .hire-page-root {
+    flex: 1;
+    max-width: 660px;
+  }
+}

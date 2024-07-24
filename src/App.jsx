@@ -5,8 +5,10 @@ import HireMe from "./pages/HireMe";
 function App() {
   return (
     <main>
-      <Intro />
-      <HireMe />
+      <div className="main-first-page">
+        <Intro />
+        <HireMe />
+      </div>
     </main>
   );
 }
