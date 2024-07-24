@@ -1,11 +1,12 @@
 .intro-page-root {
     display: flex;
     flex-direction: column;
-    height: 95vh;
+    height: 100vh;
     justify-content: space-between;
     padding: 0px 45px;
     padding-top: 1vh;
     padding-bottom: 4vh;
+    box-sizing: border-box;
 }
 
 header {
