@@ -1,11 +1,14 @@
 import "./App.css";
 import Intro from "./pages/Intro";
 import HireMe from "./pages/HireMe";
-import SizeMe from "react-sizeme";
-
 
 function App() {
-    return <SizeMe>{({ size }) => <div>My width is {size.width}px</div>}</SizeMe>
+  return (
+    <main>
+      <Intro />
+      <HireMe />
+    </main>
+  );
 }
 
 export default App;

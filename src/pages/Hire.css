@@ -1,0 +1,62 @@
+.hire-page-root {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100vh;
+    padding: 10px;
+    background-color: #a7f1ed;
+    justify-content: space-around;
+    align-items: center;
+    /* needs a max-width for the time when it expanded */
+}
+
+.hire-page-upper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hire-me-head {
+    font-size: 70px;
+    line-height: 0px;
+}
+
+.input-round {
+    border: none;
+    border-radius: 15px;
+}
+
+.hire-input-text-style {
+    font-family: "Inter";
+    font-size: 50px;
+    font-weight: medium;
+    letter-spacing: -2px;
+    padding: 20px 20px;
+    font-size: 30px;
+}
+
+.hire-input-text-style::placeholder {
+    font-size: 45px;
+}
+
+.email-input {
+}
+
+.brief-input {
+    min-height: 300px;
+}
+
+.hire-submit-button {
+    background-color: #000606;
+    min-width: 400px;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5555px;
+    color: white;
+    font-family: Assistant;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 24px;
+}
