@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 class JokesAPI {
   base_url = "https://v2.jokeapi.dev/joke/";
   categories = ["Programming", "Misc", "Pun"];
-  params = ["safe-mode", "type=single"];
+  params = ["safe-mode"];
   jokes = [];
 
   constructor() {
@@ -22,6 +22,7 @@ class JokesAPI {
       res = await res.json();
       this.jokes.push({
         error: res.error,
+        message: res.message,
         type: res.type,
         joke: res.joke,
         setup: res.setup,
@@ -32,6 +33,34 @@ class JokesAPI {
   }
 }
 
+const SetupJokeBody = ({ setup, delivery }) => {
+  useEffect(() => {
+    console.log("twopart joke");
+  }, []);
+
+  return (
+    <>
+      <div>Setup: {setup}</div>
+      <div>{delivery}</div>
+    </>
+  );
+};
+
+const JokeBody = ({ joke }) => {
+  useEffect(() => {
+    console.log("single joke");
+  }, []);
+  return <>{joke}</>;
+};
+
+const JokeLoadingMark = () => {
+  return <>{"Loading..."}</>;
+};
+
+const JokeErrorBody = ({ msg }) => {
+  return <>{msg}</>;
+};
+
 const JokesPage = () => {
   let jokes = useRef(new JokesAPI());
   let [jokeN, setJokeN] = useState(0);
@@ -40,26 +69,35 @@ const JokesPage = () => {
   useEffect(() => {
     setJoke(null);
     let loader = async () => {
-      setJoke(await jokes.current.get_joke(jokeN));
+      let joke = await jokes.current.get_joke(jokeN);
+      console.log(joke.joke);
+      setJoke(joke);
     };
     loader();
   }, [jokeN]);
 
-  // TODO: seperate out by joke.type
-  // TODO: do not allow next if current is loading... (joke === null)
-  // TODO: handle joke.error, in some general manner. (not verbose)
+  // TODO: design all give css
+  // TODO: Show error with toast
 
   return (
     <div className="joke-page-root">
       <div className="joke-box">
-        <div className="joke-head"></div>
-        <div className="joke-body">{joke?.joke || "loading..."}</div>
+        {joke === null ? (
+          <JokeLoadingMark />
+        ) : joke.error ? (
+          <JokeErrorBody msg={joke.message} />
+        ) : joke.type === "single" ? (
+          <JokeBody joke={joke.joke} />
+        ) : (
+          <SetupJokeBody setup={joke.setup} delivery={joke.delivery} />
+        )}
       </div>
       <button
         className="joke-nav-button"
         onClick={() => {
           setJokeN(Math.max(0, jokeN - 1));
         }}
+        disabled={joke === null}
       >
         {"<"}
       </button>
@@ -68,6 +106,7 @@ const JokesPage = () => {
         onClick={() => {
           setJokeN(jokeN + 1);
         }}
+        disabled={joke === null}
       >
         {">"}
       </button>
