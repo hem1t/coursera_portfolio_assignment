@@ -5,12 +5,12 @@ import JokesPage from "./projects/project01/JokesPage";
 
 function App() {
   return (
-    <main>
-      <div className="main-first-page">
+    <main className="main-window">
+      <div className="main-first-page page">
         <Intro />
         <HireMe />
       </div>
-      <div>
+      <div className="page">
         <JokesPage />
       </div>
     </main>

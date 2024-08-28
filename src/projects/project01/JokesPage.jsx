@@ -1,56 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-
-class JokesAPI {
-  base_url = "https://v2.jokeapi.dev/joke/";
-  categories = ["Programming", "Misc", "Pun"];
-  params = ["safe-mode"];
-  jokes = [];
-
-  constructor() {
-    this.gen_link();
-    this.get_joke(0);
-  }
-
-  gen_link() {
-    this.full_link =
-      this.base_url + this.categories.join(",") + "?" + this.params.join("&");
-  }
-
-  async get_joke(n) {
-    if (n === this.jokes.length) {
-      let res = await fetch(this.full_link);
-      res = await res.json();
-      this.jokes.push({
-        error: res.error,
-        message: res.message,
-        type: res.type,
-        joke: res.joke,
-        setup: res.setup,
-        delivery: res.delivery,
-      });
-    }
-    return this.jokes[n];
-  }
-}
+import { JokesAPI } from "./jokesAPI";
+import "./JokesPage.css";
 
 const SetupJokeBody = ({ setup, delivery }) => {
-  useEffect(() => {
-    console.log("twopart joke");
-  }, []);
-
   return (
-    <>
-      <div>Setup: {setup}</div>
+    <div className="setup-joke-body">
+      <div className="joke-setup">{setup}</div>
       <div>{delivery}</div>
-    </>
+    </div>
   );
 };
 
 const JokeBody = ({ joke }) => {
-  useEffect(() => {
-    console.log("single joke");
-  }, []);
-  return <>{joke}</>;
+  return <div className="normal-joke-body">{joke}</div>;
 };
 
 const JokeLoadingMark = () => {
@@ -70,13 +32,13 @@ const JokesPage = () => {
     setJoke(null);
     let loader = async () => {
       let joke = await jokes.current.get_joke(jokeN);
-      console.log(joke.joke);
+      console.log(jokeN, joke.id, joke.joke);
       setJoke(joke);
     };
     loader();
   }, [jokeN]);
 
-  // TODO: design all give css
+  // TODO: design all
   // TODO: Show error with toast
 
   return (
@@ -92,24 +54,26 @@ const JokesPage = () => {
           <SetupJokeBody setup={joke.setup} delivery={joke.delivery} />
         )}
       </div>
-      <button
-        className="joke-nav-button"
-        onClick={() => {
-          setJokeN(Math.max(0, jokeN - 1));
-        }}
-        disabled={joke === null}
-      >
-        {"<"}
-      </button>
-      <button
-        className="joke-nav-button"
-        onClick={() => {
-          setJokeN(jokeN + 1);
-        }}
-        disabled={joke === null}
-      >
-        {">"}
-      </button>
+      <div className="joke-page-buttons">
+        <button
+          className="joke-nav-button"
+          onClick={() => {
+            setJokeN(Math.max(0, jokeN - 1));
+          }}
+          disabled={joke === null}
+        >
+          {"<--"} <br /> {"prev"}
+        </button>
+        <button
+          className="joke-nav-button"
+          onClick={() => {
+            setJokeN(jokeN + 1);
+          }}
+          disabled={joke === null}
+        >
+          {"-->"} <br /> {"next"}
+        </button>
+      </div>
     </div>
   );
 };
