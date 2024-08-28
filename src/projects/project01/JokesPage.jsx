@@ -38,7 +38,6 @@ const JokesPage = () => {
     loader();
   }, [jokeN]);
 
-  // TODO: design all
   // TODO: Show error with toast
 
   return (
@@ -62,7 +61,7 @@ const JokesPage = () => {
           }}
           disabled={joke === null}
         >
-          {"<--"} <br /> {"prev"}
+          {"←"} <br /> {"prev"}
         </button>
         <button
           className="joke-nav-button"
@@ -71,7 +70,7 @@ const JokesPage = () => {
           }}
           disabled={joke === null}
         >
-          {"-->"} <br /> {"next"}
+          {"→"} <br /> {"next"}
         </button>
       </div>
     </div>

@@ -75,6 +75,19 @@ header {
     padding: 0px;
 }
 
+.intro-nav-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.intro-nav-buttons .to-projects {
+    font-size: 20px;
+}
+
+.intro-nav-buttons .to-hireme {
+    font-size: 20px;
+}
+
 @media (min-width: 905px) {
     .profile-box {
         flex-direction: row-reverse;
@@ -88,12 +101,6 @@ header {
     }
 }
 
-@media (min-width: 600px) {
-    .appear-in-mobile {
-        display: none !important;
-    }
-}
-
 @media (max-width: 905px) {
     .hide-in-mobile {
         display: none !important;
@@ -101,5 +108,25 @@ header {
 
     .hide-in-mobile * {
         display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* decreasing sizes */
+    .links .link {
+        font-size: 18px;
+    }
+
+    .profile-box img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .hi {
+        font-size: 65px;
+    }
+
+    .profile-desc {
+        font-size: 28px;
     }
 }
