@@ -60,7 +60,7 @@ const IntroPage = () => {
       </div>
       <Button
         className="to-projects"
-        text="goto projects"
+        text="Projects"
         onclick={() => {
           console.log("Will go to projects!");
         }}

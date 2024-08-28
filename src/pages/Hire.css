@@ -29,7 +29,6 @@
 
 .hire-input-text-style {
     font-family: "Inter";
-    font-size: 50px;
     font-weight: medium;
     letter-spacing: -2px;
     padding: 20px 20px;
@@ -62,4 +61,24 @@
     font-weight: 700;
     text-align: center;
     letter-spacing: 24px;
+}
+
+@media (max-width: 600px) {
+    .hire-me-head {
+        font-size: 55px;
+    }
+
+    .hire-input-text-style {
+        font-size: 23px;
+        padding: 20px 5px;
+    }
+
+    .hire-input-text-style::placeholder {
+        font-size: 28px;
+    }
+
+    .hire-submit-button {
+        min-width: 290px;
+        font-size: 30px;
+    }
 }
