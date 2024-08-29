@@ -1,41 +1,81 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import "./todo_app.css";
 
 const TodoInput = ({ onSubmit }) => {
+  let [val, setVal] = useState("");
+
   return (
     <div className="todo-input-box">
-      <input className="todo-input-field" placeholder="What to do?" />
-      <button className="todo-add-button">+</button>
+      <input
+        className="todo-input-field"
+        placeholder="What to do?"
+        onChange={(event) => {
+          console.log(event.target.value);
+          setVal(event.target.value);
+        }}
+      />
+      <button
+        className="todo-add-button"
+        onClick={() => {
+          onSubmit(val);
+        }}
+      >
+        +
+      </button>
     </div>
   );
 };
 
-const ListElem = ({ task, onDelete }) => {
+const ListElem = ({ task, onBinned }) => {
   return (
     <div className="todo-elem">
-      <p>{task}</p>
+      <div>{task}</div>
+      <button onClick={onBinned}>-</button>
     </div>
   );
 };
 
-const TodoList = ({ todoList, onDelete }) => {
+const TodoList = ({ todoList, onBinned }) => {
   return (
     <div className="todo-list-box">
-      {todoList.map((i, task) => (
-        <ListElem key={i} task={todoList[task]} onDelete={() => {}} />
+      {todoList.map((task, i) => (
+        <ListElem
+          key={i}
+          task={task}
+          onBinned={() => {
+            onBinned(i);
+          }}
+        />
       ))}
     </div>
   );
 };
 
-function todoHandler(todos, action) {}
+function todoHandler(todos, action) {
+  switch (action.name) {
+    case "add":
+      return [...todos, action.data];
+    case "delete":
+      return [...todos.filter((_, i) => action.data !== i)];
+    default:
+      throw Error("Hello");
+  }
+}
 
 const TodoApp = () => {
-  let [todos, todo_do] = useReducer(todoHandler, []);
+  const [todos, todo_do] = useReducer(todoHandler, []);
+
   return (
     <div className="todo-app">
-      <TodoInput />
-      <TodoList todoList={["task 1", "task 2"]} />
+      <TodoInput
+        onSubmit={(value) => {
+          todo_do({ name: "add", data: value });
+        }}
+      />
+      <TodoList
+        todoList={todos}
+        onBinned={(i) => todo_do({ name: "delete", data: i })}
+      />
     </div>
   );
 };
