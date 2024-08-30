@@ -1,0 +1,59 @@
+.todo-app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 92vh;
+    width: 100vw;
+    padding-top: 8vw;
+    gap: 25px;
+}
+
+.todo-input-box {
+    display: flex;
+}
+
+.todo-input-field {
+    border: 3px solid lightgray;
+    border-radius: 5px;
+    height: 40px;
+    width: 56vw;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.todo-input-field:focus {
+    outline: none;
+}
+
+.todo-list-box {
+    height: 75vh;
+    width: 56vw;
+    padding: 10px;
+    border: 2px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: scroll;
+}
+
+.todo-elem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 21px;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.todo-elem-left {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+}
+
+.todo-elem-delete {
+    border: none;
+    background: none;
+}

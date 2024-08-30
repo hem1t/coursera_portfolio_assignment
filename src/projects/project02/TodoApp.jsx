@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import "./todo_app.css";
+import BinImage from "../../assests/trash-black-24.png";
 
 const TodoInput = ({ onSubmit }) => {
   let [val, setVal] = useState("");
@@ -8,29 +9,41 @@ const TodoInput = ({ onSubmit }) => {
     <div className="todo-input-box">
       <input
         className="todo-input-field"
-        placeholder="What to do?"
+        placeholder='type task and press "Enter"'
         onChange={(event) => {
-          console.log(event.target.value);
           setVal(event.target.value);
         }}
-      />
-      <button
-        className="todo-add-button"
-        onClick={() => {
-          onSubmit(val);
+        onKeyDown={(event) => {
+          if (event.code === "Enter" && val !== "") {
+            onSubmit(val);
+            event.target.value = "";
+            setVal("");
+          }
         }}
-      >
-        +
-      </button>
+      />
     </div>
   );
 };
 
 const ListElem = ({ task, onBinned }) => {
+  let [check, setCheck] = useState(false);
+
   return (
     <div className="todo-elem">
-      <div>{task}</div>
-      <button onClick={onBinned}>-</button>
+      <div
+        className="todo-elem-left"
+        onClick={() => {
+          setCheck(!check);
+        }}
+      >
+        <input type="checkbox" checked={check} />
+        <div style={check ? { textDecoration: "line-through" } : {}}>
+          {task}
+        </div>
+      </div>
+      <button className="todo-elem-delete" onClick={onBinned}>
+        <img src={BinImage} />
+      </button>
     </div>
   );
 };
