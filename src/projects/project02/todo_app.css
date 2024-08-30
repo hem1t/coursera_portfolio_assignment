@@ -57,3 +57,25 @@
     border: none;
     background: none;
 }
+
+@media (max-width: 750px) {
+    .todo-app {
+        height: 97vh;
+        padding-top: 3vh;
+    }
+
+    .todo-input-field {
+        height: 30px;
+        width: 80vw;
+        font-size: 25px;
+    }
+
+    .todo-list-box {
+        height: 80vh;
+        width: 80vw;
+    }
+
+    .todo-elem {
+        font-size: 17px;
+    }
+}
