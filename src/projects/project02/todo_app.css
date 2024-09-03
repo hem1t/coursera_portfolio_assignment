@@ -45,12 +45,19 @@
     background: rgba(0, 0, 0, 0.1);
     padding: 5px;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .todo-elem-left {
     display: flex;
     gap: 5px;
     flex: 1;
+    min-width: 225px;
+    overflow: hidden;
+}
+.todo-elem-left div {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .todo-elem-delete {

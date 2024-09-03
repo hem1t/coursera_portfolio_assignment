@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap");
+
+.full-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.calc-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    box-shadow: 0 0 5px lightgray;
+    border-radius: 14px;
+    width: fit-content;
+    gap: 30px;
+    padding: 10px;
+}
+
+.calc-body * {
+    font-family: "Martian Mono";
+    color: #3a3a3a;
+}
+
+.calc-screen {
+    display: flex;
+    background: rgba(0, 0, 0, 0.1);
+    height: 110px;
+    width: 290px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.calc-button-pad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px 5px;
+    width: 290px;
+    height: 290px;
+}
+
+.calc-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    user-select: none;
+    height: auto;
+}
+
+.calc-symbol-button {
+    background: lightgray;
+    border: 2px solid lightgray;
+    font-size: 23px;
+    font-weight: 600;
+    height: 50px;
+}
+
+.calc-clear-button {
+    background: orange;
+    border: 2px solid orange;
+    font-size: 18px;
+    font-weight: 600;
+    height: 30px;
+}
+
+.calc-plus-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    height: auto;
+}
+.calc-minus-button {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    height: auto;
+}
+
+.calc-equal-button {
+    grid-column: 3 / span 2;
+    grid-row: 5;
+    background: orange;
+    border: 2px solid orange;
+    height: 50px;
+}
+
+.calc-number-button {
+    border: 2px solid lightgray;
+    transition: background 0.35s;
+    height: 50px;
+    width: 50px;
+}
+
+.calc-number-button:hover {
+    background: orange;
+}

@@ -3,6 +3,7 @@ import Intro from "./pages/Intro";
 import HireMe from "./pages/HireMe";
 import JokesPage from "./projects/project01/JokesPage";
 import TodoApp from "./projects/project02/TodoApp";
+import Calculator from "./projects/project03/Calculator";
 
 function App() {
   return (
@@ -16,11 +17,14 @@ function App() {
           // /*projects page*/
         }
       </div>
+      {/* <div className="page"> */}
+      {/*   <JokesPage /> */}
+      {/* </div> */}
+      {/* <div className="page"> */}
+      {/*   <TodoApp /> */}
+      {/* </div> */}
       <div className="page">
-        <JokesPage />
-      </div>
-      <div className="page">
-        <TodoApp />
+        <Calculator />
       </div>
     </main>
   );
