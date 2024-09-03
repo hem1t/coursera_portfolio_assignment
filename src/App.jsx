@@ -4,6 +4,7 @@ import HireMe from "./pages/HireMe";
 import JokesPage from "./projects/project01/JokesPage";
 import TodoApp from "./projects/project02/TodoApp";
 import Calculator from "./projects/project03/Calculator";
+import RapidXO from "./projects/project04/RapidXO";
 
 function App() {
   return (
@@ -23,8 +24,11 @@ function App() {
       {/* <div className="page"> */}
       {/*   <TodoApp /> */}
       {/* </div> */}
+      {/* <div className="page"> */}
+      {/*   <Calculator /> */}
+      {/* </div> */}
       <div className="page">
-        <Calculator />
+        <RapidXO />
       </div>
     </main>
   );

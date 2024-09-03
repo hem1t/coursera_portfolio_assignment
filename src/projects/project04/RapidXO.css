@@ -1,0 +1,22 @@
+.xo-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 150px;
+    width: 150px;
+}
+
+.xo-board-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.xo-board-cell:nth-child(n) {
+    background: #a7f1ed;
+}
+
+.xo-board-cell:nth-child(odd) {
+    background: #11d0c7;
+}
