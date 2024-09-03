@@ -103,6 +103,7 @@
     background: orange;
     border: 2px solid orange;
     height: 50px;
+    font-size: 24px;
 }
 
 .calc-number-button {
@@ -114,4 +115,13 @@
 
 .calc-number-button:hover {
     background: orange;
+}
+
+.calc-button {
+    transition: 0.35s;
+}
+
+.calc-button:hover {
+    border: 2px;
+    border-style: dashed;
 }

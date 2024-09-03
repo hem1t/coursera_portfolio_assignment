@@ -54,7 +54,9 @@ const Calculator = () => {
                 ? setResult(calculate(input))
                 : e.key === "Delete"
                   ? setResult("") || setInput("")
-                  : validate_input(e.key, input, setInput);
+                  : e.key === "Backspace" && input === ""
+                    ? setResult("")
+                    : validate_input(e.key, input, setInput);
             }}
             value={input}
           />
