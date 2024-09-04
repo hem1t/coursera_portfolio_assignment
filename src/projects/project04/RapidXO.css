@@ -1,16 +1,30 @@
+:root {
+    --cell-size: 80px;
+    --board-size: calc(var(--cell-size) * 3);
+}
+
+.full-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .xo-board {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 150px;
-    width: 150px;
+    height: var(--board-size);
+    width: var(--board-size);
+    box-shadow: 0 0 2px gray;
 }
 
 .xo-board-cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
+    height: var(--cell-size);
+    width: var(--cell-size);
 }
 
 .xo-board-cell:nth-child(n) {
@@ -19,4 +33,14 @@
 
 .xo-board-cell:nth-child(odd) {
     background: #11d0c7;
+}
+
+.rapid-xo-component {
+    border: 1px solid lightgray;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 50px;
+    padding: 50px;
 }
